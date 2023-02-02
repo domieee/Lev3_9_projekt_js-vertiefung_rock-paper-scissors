@@ -13,7 +13,8 @@
     <form onsubmit="return false">
         <h1>ROCK PAPER SCISSOR</h1>
         <section class="rounds pixel-border">
-            <p>How many Rounds?</p>
+            <p id="paragraphRounds">How many Rounds?</p>
+            <p id="userOutput">LET'S PLAY</p>
             <article class="radioWrap">
                 <div id="rowOneWrap">
                     <div>
@@ -38,18 +39,18 @@
                         <label for="five">20</label>
                     </div>
                 </div>
+
             </article>
 
-            <article class="roundCount">
-                <p id="currentRound">1</p>
-                <p>/</p>
-                <p id="totalRounds">5</p>
-            </article>
         </section>
 
         <button type="submit" id="start">START</button>
 
-        <p id="outputGameplay">Let's Play</p>
+        <article class="roundCount">
+            <p id="currentRound">1</p>
+            <p>/</p>
+            <p id="totalRounds"></p>
+        </article>
 
         <section class="gameplay">
             <article class="gameplay-image pixel-border" id="imageUser">

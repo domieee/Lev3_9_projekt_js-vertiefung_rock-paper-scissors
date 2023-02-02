@@ -9,8 +9,8 @@ const currentRound = document.querySelector('#currentRound')
 const totalRounds = document.querySelector('#totalRounds')
 
 // SCORE
-const userScore = document.querySelector('scoreUser')
-const computerScore = document.querySelector('scoreComp')
+const userScoreDOM = document.querySelector('#scoreUser')
+const computerScoreDOM = document.querySelector('#scoreComp')
 
 // ROCK, PAPER, SCISSOR
 const rock = document.querySelector('#rock')
@@ -27,17 +27,80 @@ const reset = document.querySelector('#reset')
 
 // GAMEPLAY
 const gameplay = document.querySelector('.gameplay')
+const paragraphRounds = document.querySelector('#paragraphRounds')
 const scoreCount = document.querySelector('.scoreCount')
+const userOutput = document.querySelector('#userOutput')
 
 // COUNTING VARIABLES
 let totalRoundsCount = 0
 let currentRoundCount;
 
-let scoreUser = 0
-let scoreCom = 0
+let userScoreOutput = 0
+let comScoreOutput = 0
+
+
+
+function calculateComScore() {
+    return Math.floor(Math.random() * (3 - 1 + 1) + 1)
+}
+
+
+function setImage(comScore) {
+    if (comScore == 1) {
+        console.log('moin');
+    } else if (comScore == 2) {
+        console.log('doppel moin')
+    } else {
+        console.log('dreifach moin');
+    }
+}
+
+function userWins() {
+    userOutput.innerHTML = 'USER WINS';
+    userScoreOutput++;
+    userScoreDOM.innerHTML = userScoreOutput.toString();
+}
+
+function comWins() {
+    userOutput.innerHTML = 'COM WINS';
+    comScoreOutput++;
+    computeryScoreDOM.innerHTML = comScoreOutput.toString();
+}
+
+function setRound() {
+    totalRoundsCount++
+}
+
+function startRound(userScore) {
+    let comScore = calculateComScore();
+    setImage(comScore);
+
+    console.log(userScore, comScore);
+    if (userScore == 1 && comScore == 3) {
+        userWins();
+    } else if (userScore == 3 && comScore == 1) {
+        comWins();
+    } else if (userScore == 2 && comScore == 1) {
+        userWins();    
+    } else if (userScore == 1 && comScore == 2) {
+        comWins();
+    } else if (userScore == 3 && comScore == 1) {
+        userWins();
+    } else if (userScore == 1 && comScore == 3) {
+        comWins();
+    } else if (userScore == 3 && comScore == 2) {
+        userWins();
+    } else if (userScore == 2 && comScore == 3) {
+        comWins();
+    } else if (userScore == comScore) {
+        userOutput.innerHTML = 'REMI!';
+    }
+    setRound();
+}
 
 
 function changeDOM() {
+    paragraphRounds.style.display = 'none'
     radioWrap.style.display = 'none'
     roundCount.style.display = 'flex'
     gameplay.style.display = 'flex'
@@ -69,12 +132,21 @@ function startGame() {
     changeDOM();
 }
 
-// TODO: RESET BUTTON VISIBLE
-// TODO: outputGameplay visisble
+rock.addEventListener('click', () => {
+    let v;
+    v = 1
+    startRound(v)
+})
+paper.addEventListener('click', () => {
+    let v;
+    v = 2
+    startRound(v)
+})
+scissor.addEventListener('click', () => {
+    let v;
+    v = 3
+    startRound(v)
+})
 
 start.addEventListener('click', startGame)
-
-rock.addEventListener('click', startRound)
-paper.addEventListener('click', startRound)
-scissor.addEventListener('click', startRound)
 

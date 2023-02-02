@@ -1,23 +1,211 @@
-@import './assets/base/_reset.scss';
-@import './assets/base/_typography.scss';
-@import './assets/components/_buttons.scss';
-@import './assets/components/_carousel.scss';
-@import './assets/components/_cover.scss';
-@import './assets/components/_dropdown.scss';
-@import './assets/layout/_navigation.scss';
-@import './assets/layout/_grid.scss';
-@import './assets/layout/_header.scss';
-@import './assets/layout/_footer.scss';
-@import './assets/layout/_sidebar.scss';
-@import './assets/layout/_forms.scss';
-@import './assets/pages/_home.scss';
-@import './assets/pages/_contact.scss';
-@import './assets/themes/_theme.scss';
-@import './assets/themes/_admin.scss';
-@import './assets/utils/_variables.scss';
-@import './assets/utils/_functions.scss';
-@import './assets/utils/_mixins.scss';
-@import './assets/utils/helpers.scss';
-@import './assets/vendors_bootstrap.scss';
-@import './assets/base/_reset.scss';
-@import './assets/base/_jquery-ui.scss';
+@import './base/_reset.scss';
+@import './base/_typography.scss';
+@import './components/_buttons.scss';
+@import './components/_carousel.scss';
+@import './components/_cover.scss';
+@import './components/_dropdown.scss';
+@import './layout/_navigation.scss';
+@import './layout/_grid.scss';
+@import './layout/_header.scss';
+@import './layout/_footer.scss';
+@import './layout/_sidebar.scss';
+@import './layout/_forms.scss';
+@import './pages/_home.scss';
+@import './pages/_contact.scss';
+@import './themes/_theme.scss';
+@import './themes/_admin.scss';
+@import './utils/_variables.scss';
+@import './utils/_functions.scss';
+@import './utils/_mixins.scss';
+@import './utils/helpers.scss';
+@import './base/_reset.scss';
+
+// TODO: CHANGE CSS AND THE DIR STRUCTURE
+
+:root {
+	--pixel-bg: #fff;
+	/* ↑ Inner background color */
+	
+	--pixel-border: black;
+	/* ↑ Inner border color */
+	
+	--pixel-border-2: white;
+	/* ↑ Middle border color */
+	
+	--pixel-border-3: var(--pixel-border);
+	/* ↑ Outer border color */
+	
+	--pixel: .125rem;
+	/* ↑ Pixel size */
+}
+@font-face {
+    font-family: pixel;
+    src: url(../fonts/prstart.ttf);
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    background-color: #dddddd;
+    justify-content: center;
+    align-items: center;
+}
+
+form {
+    max-width: 450px;
+    width: 100%;
+}
+
+.roundCount,
+.scoreCount,
+#score,
+.radioWrap,
+#rowOneWrap,
+#rowTwoWraps,
+.gameplay,
+.buttonWrap {
+    display: flex;
+
+}
+#score {
+    margin-inline: 20px;
+}
+
+.scoreCount {
+    justify-content: center;
+}
+
+.radioWrap {
+    margin-block: 10px;
+    justify-content: center;
+}
+#rowOneWrap,
+#rowTwoWrap {
+    flex-direction: column;
+
+}
+
+#rowOneWrap {
+    margin-right: 25px;
+}
+
+.radioWrap {
+    width: 100%;
+}
+
+h1 {
+    font-size: 1.4em;
+}
+
+button {
+    padding: 2px 12px;
+    font-size: 1em;
+    border-bottom: #aaaaaa 2px solid;
+    border-right: #aaaaaa 2px solid;
+    border-top: #fff 2px solid;
+}
+
+.gameplay {
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.gameplay-image {
+    padding: px;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    > img {
+        width: 32px;
+    }
+}
+
+.sectionBorder {
+    border-radius: 4px linear;
+    border: 2px solid black;
+    margin-bottom: 20px;
+}
+
+.roundCount,
+.gameplay,
+.scoreCount,
+#outputGameplay,
+#reset,
+.buttonWrap {
+    display: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.buttonWrap {
+    width: 200px;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.pixel-border {
+    margin-block: 50px;
+	background: var(--pixel-bg);
+	box-shadow:
+		
+	/* Inner Background Color */
+		0 calc(var(--pixel) * -3) 0 calc(var(--pixel) * -1) var(--pixel-bg),
+		0 calc(var(--pixel) * 3) 0 calc(var(--pixel) * -1) var(--pixel-bg),
+		0 calc(var(--pixel) * -6) 0 calc(var(--pixel) * -2) var(--pixel-bg),
+		0 calc(var(--pixel) * 6) 0 calc(var(--pixel) * -2) var(--pixel-bg),
+		0 calc(var(--pixel) * -9) 0 calc(var(--pixel) * -4) var(--pixel-bg),
+		0 calc(var(--pixel) * 9) 0 calc(var(--pixel) * -4) var(--pixel-bg),
+		0 calc(var(--pixel) * -12) 0 calc(var(--pixel) * -6) var(--pixel-bg),
+		0 calc(var(--pixel) * 12) 0 calc(var(--pixel) * -6) var(--pixel-bg),
+		
+	/* Pixel Border Layer 1 */
+		calc(var(--pixel) * -1) 0 0 0 var(--pixel-border),
+		var(--pixel) 0 0 0 var(--pixel-border),
+		0 calc(var(--pixel) * -2) 0 0 var(--pixel-border),
+		0 calc(var(--pixel) * 2) 0 0 var(--pixel-border),
+		0 calc(var(--pixel) * -5) 0 calc(var(--pixel) * -1) var(--pixel-border),
+		0 calc(var(--pixel) * 5) 0 calc(var(--pixel) * -1) var(--pixel-border),
+		0 calc(var(--pixel) * -7) 0 calc(var(--pixel) * -2) var(--pixel-border),
+		0 calc(var(--pixel) * 7) 0 calc(var(--pixel) * -2) var(--pixel-border),
+		0 calc(var(--pixel) * -10) 0 calc(var(--pixel) * -4) var(--pixel-border),
+		0 calc(var(--pixel) * 10) 0 calc(var(--pixel) * -4) var(--pixel-border),
+		0 calc(var(--pixel) * -13) 0 calc(var(--pixel) * -6) var(--pixel-border),
+		0 calc(var(--pixel) * 13) 0 calc(var(--pixel) * -6) var(--pixel-border),
+		
+	/* Pixel Border Layer 2 */
+		calc(var(--pixel) * -2) 0 0 0 var(--pixel-border-2),
+		calc(var(--pixel) * 2) 0 0 0 var(--pixel-border-2),
+		0 calc(var(--pixel) * -1) 0 var(--pixel) var(--pixel-border-2), 
+		0 var(--pixel) 0 var(--pixel) var(--pixel-border-2),
+		0 calc(var(--pixel) * -4) 0 0 var(--pixel-border-2),
+		0 calc(var(--pixel) * 4) 0 0 var(--pixel-border-2),
+		0 calc(var(--pixel) * -6) 0 calc(var(--pixel) * -1) var(--pixel-border-2),
+		0 calc(var(--pixel) * 6) 0 calc(var(--pixel) * -1) var(--pixel-border-2),
+		0 calc(var(--pixel) * -8) 0 calc(var(--pixel) * -2) var(--pixel-border-2),
+		0 calc(var(--pixel) * 8) 0 calc(var(--pixel) * -2) var(--pixel-border-2),
+		0 calc(var(--pixel) * -11) 0 calc(var(--pixel) * -4) var(--pixel-border-2),
+		0 calc(var(--pixel) * 11) 0 calc(var(--pixel) * -4) var(--pixel-border-2),
+		0 calc(var(--pixel) * -14) 0 calc(var(--pixel) * -6) var(--pixel-border-2),
+		0 calc(var(--pixel) * 14) 0 calc(var(--pixel) * -6) var(--pixel-border-2),
+		
+	/* Border Layer 3: --pixel-border-3 */
+		calc(var(--pixel) * -3) 0 0 0 var(--pixel-border-3),
+		calc(var(--pixel) * 3) 0 0 0 var(--pixel-border-3),
+		0 0 0 calc(var(--pixel) * 2) var(--pixel-border-3),
+		0 calc(var(--pixel) * -3) 0 var(--pixel) var(--pixel-border-3),
+		0 calc(var(--pixel) * 3) 0 var(--pixel) var(--pixel-border-3),
+		0 calc(var(--pixel) * -5) 0 0 var(--pixel-border-3),
+		0 calc(var(--pixel) * 5) 0 0 var(--pixel-border-3),
+		0 calc(var(--pixel) * -7) 0 calc(var(--pixel) * -1) var(--pixel-border-3),
+		0 calc(var(--pixel) * 7) 0 calc(var(--pixel) * -1) var(--pixel-border-3),
+		0 calc(var(--pixel) * -9) 0 calc(var(--pixel) * -2) var(--pixel-border-3), 
+		0 calc(var(--pixel) * 9) 0 calc(var(--pixel) * -2) var(--pixel-border-3),
+		0 calc(var(--pixel) * -12) 0 calc(var(--pixel) * -4) var(--pixel-border-3), 
+		0 calc(var(--pixel) * 12) 0 calc(var(--pixel) * -4) var(--pixel-border-3),
+		0 calc(var(--pixel) * -15) 0 calc(var(--pixel) * -6) var(--pixel-border-3), 
+		0 calc(var(--pixel) * 15) 0 calc(var(--pixel) * -6) var(--pixel-border-3);
+}

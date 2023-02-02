@@ -1,21 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/styles.css">
     <title>Lev3_9_projekt_js-vertiefung_rock-paper-scissors</title>
 </head>
+
 <body>
     <form onsubmit="return false">
-        <section class="rounds sectionBorder">
+        <h1>ROCK PAPER SCISSOR</h1>
+        <section class="rounds pixel-border">
             <p>How many Rounds?</p>
             <article class="radioWrap">
-                <input type="radio" name="rounds" id="five" class="input-radio">
-                <input type="radio" name="rounds" id="ten" class="input-radio">
-                <input type="radio" name="rounds" id="fifteen" class="input-radio">
-                <input type="radio" name="rounds" id="twenty" class="input-radio">
+                <div id="rowOneWrap">
+                    <div>
+                        <input type="radio" name="rounds" id="five" class="input-radio">
+                        <label for="five">5</label>
+                    </div>
+
+                    <div>
+                        <input type="radio" name="rounds" id="fifteen" class="input-radio">
+                        <label for="five">15</label>
+                    </div>
+
+                </div>
+                <div id="rowTwoWrap">
+                    <div>
+                        <input type="radio" name="rounds" id="ten" class="input-radio">
+                        <label for="five">10</label>
+                    </div>
+                    
+                    <div>
+                        <input type="radio" name="rounds" id="twenty" class="input-radio">
+                        <label for="five">20</label>
+                    </div>
+                </div>
             </article>
+
             <article class="roundCount">
                 <p id="currentRound">1</p>
                 <p>/</p>
@@ -23,17 +47,48 @@
             </article>
         </section>
 
-
-        <section class="scoreCount sectionBorder">
-            <div class="user--comp">USER</div>
-            <p id="scoreUser">0</p>
-            <p>:</p>
-            <p id="scoreComp">0</p>
-            <div class="user--comp">COMP</div>
-        </section>
+        <button type="submit" id="start">START</button>
 
         <p id="outputGameplay">Let's Play</p>
+
+        <section class="gameplay">
+            <article class="gameplay-image pixel-border" id="imageUser">
+
+            </article>
+
+            <p>vs.</p>
+
+            <article class="gameplay-image pixel-border" id="imageComp">
+
+            </article>
+        </section>
+
+        <section class="scoreCount pixel-border">
+            <p class="user--comp">USER</p>
+            <div id="score">
+                <p id="scoreUser">0</p>
+                <p>:</p>
+                <p id="scoreComp">0</p>
+            </div>
+            <p class="user--comp">COMP</p>
+        </section>
+
+
+        <section class="buttonWrap">
+            <a href="#" id="rock">
+                <img src="./assets/img/rock.svg" alt="Rock" width="32px">
+                </input>
+                <a href="#" id="paper">
+                    <img src="./assets/img/paper.svg" alt="Paper" width="32px">
+                </a>
+                <a href="#" id="scissor">
+                    <img src="./assets/img/scissor.svg" alt="Scissor" width="32px">
+                </a>
+        </section>
+
+        <button type="reset" id="reset">Reset</button>
     </form>
     <script src="./assets/js/main.js"></script>
 </body>
+
 </html>

@@ -33,17 +33,14 @@ const userOutput = document.querySelector('#userOutput')
 
 // COUNTING VARIABLES
 let totalRoundsCount = 0
-let currentRoundCount;
+let currentRoundCount = 0;
 
 let userScoreOutput = 0
 let comScoreOutput = 0
 
-
-
 function calculateComScore() {
     return Math.floor(Math.random() * (3 - 1 + 1) + 1)
 }
-
 
 function setImage(comScore) {
     if (comScore == 1) {
@@ -64,17 +61,33 @@ function userWins() {
 function comWins() {
     userOutput.innerHTML = 'COM WINS';
     comScoreOutput++;
-    computeryScoreDOM.innerHTML = comScoreOutput.toString();
+    computerScoreDOM.innerHTML = comScoreOutput.toString();
+}
+
+function limit() {
+    alert('Ich weiß noch nicht wer gewonnen hat')
+    if (userScoreOutput > comScoreOutput) {
+        alert('user won')
+     } else if (userScoreOutput < comScoreOutput) {
+        alert('user lost')
+     } else {
+        alert('user')
+     }
 }
 
 function setRound() {
-    totalRoundsCount++
+    currentRoundCount++
+    console.log(currentRoundCount);
+    currentRound.innerHTML = currentRoundCount;
+    if (currentRoundCount === totalRoundsCount) {
+        limit()
+    }
 }
 
 function startRound(userScore) {
     let comScore = calculateComScore();
     setImage(comScore);
-
+    setRound();
     console.log(userScore, comScore);
     if (userScore == 1 && comScore == 3) {
         userWins();
@@ -95,9 +108,7 @@ function startRound(userScore) {
     } else if (userScore == comScore) {
         userOutput.innerHTML = 'REMI!';
     }
-    setRound();
 }
-
 
 function changeDOM() {
     paragraphRounds.style.display = 'none'

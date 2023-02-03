@@ -49,6 +49,7 @@ body {
     background-color: #dddddd;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 
 form {
@@ -82,9 +83,12 @@ form {
 #rowOneWrap,
 #rowTwoWrap {
     flex-direction: column;
-
 }
 
+#userOutput {
+    display: block;
+    text-align: center;
+}
 #rowOneWrap {
     margin-right: 25px;
 }
@@ -133,7 +137,8 @@ button {
 .scoreCount,
 #outputGameplay,
 #reset,
-.buttonWrap {
+.buttonWrap,
+#userOutput {
     display: none;
 }
 
@@ -145,6 +150,11 @@ a {
     width: 200px;
     justify-content: space-evenly;
     align-items: center;
+}
+
+button,
+.buttonWrap {
+    margin-inline: auto;
 }
 
 .pixel-border {

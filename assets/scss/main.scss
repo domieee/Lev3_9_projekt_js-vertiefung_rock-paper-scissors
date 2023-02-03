@@ -72,7 +72,8 @@ form {
     margin-inline: 20px;
 }
 
-.scoreCount {
+.scoreCount,
+.roundCount {
     justify-content: center;
 }
 
@@ -153,7 +154,8 @@ a {
 }
 
 button,
-.buttonWrap {
+.buttonWrap,
+.scoreCount {
     margin-inline: auto;
 }
 

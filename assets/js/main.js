@@ -36,7 +36,7 @@ const userOutput = document.querySelector('#userOutput')
 
 // COUNTING VARIABLES
 let totalRoundsCount = 0
-let currentRoundCount = 1;
+let currentRoundCount = 0;
 
 let userScoreOutput = 0
 let comScoreOutput = 0
@@ -84,20 +84,18 @@ function limit() {
      } else {
         userOutput.innerHTML = 'IT´S A DRAFT'
      }
-     currentRoundCount++;
 }
 
 function setRound() {
-    if (currentRoundCount === totalRoundsCount) {
+    if (currentRoundCount === totalRoundsCount - 1) {
         limit()
     } else if (currentRoundCount > totalRoundsCount) { 
         alert('Reset the game to play a new round')
-        return false;
-    } else {
-        currentRoundCount++
-        console.log(currentRoundCount);
-        currentRound.innerHTML = currentRoundCount;
+        return false;       
     }
+    currentRoundCount++
+    console.log(currentRoundCount);
+    currentRound.innerHTML = currentRoundCount;
 }
 
 function startRound(userScore) {
@@ -145,7 +143,7 @@ function startGame() {
         }
     }
     
-    userOutput.style.display = 'flex'
+    userOutput.style.display = 'block'
     paragraphRounds.style.display = 'none'
     radioWrap.style.display = 'none'
     roundCount.style.display = 'flex'

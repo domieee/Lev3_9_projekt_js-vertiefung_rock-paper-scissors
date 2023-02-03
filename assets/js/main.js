@@ -47,19 +47,19 @@ function calculateComScore() {
 
 function setImage(comScore, userScore) {
     if (comScore == 1) {
-        imgCom.setAttribute('src', './assets/img/rock.svg')    
+        imgCom.setAttribute('src', './assets/img/rock.svg')
     } else if (comScore == 2) {
-        imgCom.setAttribute('src', './assets/img/paper.svg')    
+        imgCom.setAttribute('src', './assets/img/paper.svg')
     } else if (comScore == 3) {
-        imgCom.setAttribute('src', './assets/img/scissor.svg')    
+        imgCom.setAttribute('src', './assets/img/scissor.svg')
     }
 
     if (userScore == 1) {
-        imgUser.setAttribute('src', './assets/img/rock.svg')    
+        imgUser.setAttribute('src', './assets/img/rock.svg')
     } else if (userScore == 2) {
-        imgUser.setAttribute('src', './assets/img/paper.svg')    
+        imgUser.setAttribute('src', './assets/img/paper.svg')
     } else if (userScore == 3) {
-        imgUser.setAttribute('src', './assets/img/scissor.svg')    
+        imgUser.setAttribute('src', './assets/img/scissor.svg')
     }
 }
 
@@ -76,38 +76,34 @@ function comWins() {
 }
 
 function limit() {
-
     if (userScoreOutput > comScoreOutput) {
         userOutput.innerHTML = 'USER WON THE GAME'
-     } else if (userScoreOutput < comScoreOutput) {
+    } else if (userScoreOutput < comScoreOutput) {
         userOutput.innerHTML = 'COMPUTER WON THE GAME'
-     } else {
+    } else {
         userOutput.innerHTML = 'IT´S A DRAFT'
-     }
+    }
 }
 
 function setRound() {
     if (currentRoundCount === totalRoundsCount - 1) {
         limit()
-    } else if (currentRoundCount > totalRoundsCount) { 
+    } else if (currentRoundCount > totalRoundsCount) {
         alert('Reset the game to play a new round')
-        return false;       
     }
     currentRoundCount++
-    console.log(currentRoundCount);
     currentRound.innerHTML = currentRoundCount;
 }
 
 function startRound(userScore) {
     let comScore = calculateComScore();
     setImage(comScore, userScore);
-    console.log(userScore, comScore);
     if (userScore == 1 && comScore == 3) {
         userWins();
     } else if (userScore == 3 && comScore == 1) {
         comWins();
     } else if (userScore == 2 && comScore == 1) {
-        userWins();    
+        userWins();
     } else if (userScore == 1 && comScore == 2) {
         comWins();
     } else if (userScore == 3 && comScore == 1) {
@@ -122,6 +118,9 @@ function startRound(userScore) {
         userOutput.innerHTML = 'REMI!';
     }
     setRound()
+    if (userScoreOutput >= Math.floor((totalRoundsCount / 2) + 1) || (comScoreOutput >= Math.floor((totalRoundsCount / 2) + 1))) {
+        limit();
+    }
 }
 
 function startGame() {
@@ -139,10 +138,8 @@ function startGame() {
             console.log(totalRounds);
         } else {
             alert('Please select how much rounds you want to play')
-            return
         }
     }
-    
     userOutput.style.display = 'block'
     paragraphRounds.style.display = 'none'
     radioWrap.style.display = 'none'
